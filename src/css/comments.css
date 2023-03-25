@@ -1,0 +1,38 @@
+.user-comment{
+margin-bottom: 1rem;
+margin-top: 1rem;
+display: flex;
+
+
+}
+.list-group-item+.list-group-item {
+  border-top-width: 0.01rem;
+  border-radius: 0.25rem;
+  align-items: baseline;
+  width: 100%;
+}
+.list-group-item:first-child {
+  border-radius: 0.25rem;
+  align-items: baseline;
+  width: 100%;
+}
+
+.comment-buttons{
+  font-size: 0.7rem;
+  padding: 0.18rem 0.3rem;
+  margin-left: 0.6rem;
+
+}
+
+.comment-text{
+  font-weight: 200;
+  margin-left: 0.3rem;
+  font-size: 14px;
+}
+
+.comment-user-name{
+  line-height: 24px;
+  font-weight: 600;
+  font-size: 15px;
+
+}
