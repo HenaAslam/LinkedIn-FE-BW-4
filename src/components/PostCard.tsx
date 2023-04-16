@@ -18,7 +18,7 @@ import {
   // removeFromLikesAction,
 } from "../actions";
 import { useAppSelector, useAppDispatch } from "../hooks/hooks";
-import "../css/comments.css"
+import "../css/comments.css";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -418,6 +418,8 @@ const PostCard = (props: IProps) => {
                   <Button
                     variant="primary"
                     type="submit"
+                    style={{ fontSize: "14px" }}
+                    className="rounded-pill py-1 px-2"
                     onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
                       e.preventDefault();
                       submitComment(singlePost._id);
@@ -436,33 +438,49 @@ const PostCard = (props: IProps) => {
                     }) => (
                       <>
                         <ListGroupItem className="user-comment">
-                         {<span className="comment-user-name">{c.user.name} {c.user.surname}: </span>}   {<span className="comment-text">{c.comment} </span>}
+                          {
+                            <span className="comment-user-name">
+                              {c.user.name} {c.user.surname}:{" "}
+                            </span>
+                          }{" "}
+                          {<span className="comment-text">{c.comment} </span>}
                           {c.user._id === prof._id ? (
                             <span className="ml-5">
-                             {<div className="button-div"> <Button 
-                                className="comment-buttons"
-                                variant="outline-dark"
-                                onClick={(
-                                  e: React.MouseEvent<HTMLElement, MouseEvent>
-                                ) => {
-                                  e.preventDefault();
-                                  deleteComment(c._id, singlePost._id);
-                                }}
-                              >
-                                <Trash />
-                              </Button>
-                              <Button
-                               className="comment-buttons"
-                                variant="outline-dark"
-                                onClick={(
-                                  e: React.MouseEvent<HTMLElement, MouseEvent>
-                                ) => {
-                                  e.preventDefault();
-                                  handleShow2(c._id, singlePost._id);
-                                }}
-                              >
-                                <Pencil />
-                              </Button></div>}
+                              {
+                                <div className="button-div">
+                                  {" "}
+                                  <Button
+                                    className="comment-buttons"
+                                    variant="outline-dark"
+                                    onClick={(
+                                      e: React.MouseEvent<
+                                        HTMLElement,
+                                        MouseEvent
+                                      >
+                                    ) => {
+                                      e.preventDefault();
+                                      deleteComment(c._id, singlePost._id);
+                                    }}
+                                  >
+                                    <Trash />
+                                  </Button>
+                                  <Button
+                                    className="comment-buttons"
+                                    variant="outline-dark"
+                                    onClick={(
+                                      e: React.MouseEvent<
+                                        HTMLElement,
+                                        MouseEvent
+                                      >
+                                    ) => {
+                                      e.preventDefault();
+                                      handleShow2(c._id, singlePost._id);
+                                    }}
+                                  >
+                                    <Pencil />
+                                  </Button>
+                                </div>
+                              }
                               <Modal
                                 show={show2}
                                 onHide={handleClose2}
